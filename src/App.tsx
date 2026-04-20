@@ -46,7 +46,7 @@ export default function App() {
                 Select a Module from the Dashboard
               </div>
               <p className="text-outline text-lg max-w-md">
-                Initialize your learning core by selecting a topic from the main hub.
+                Start learning by selecting a topic from the main hub.
               </p>
               <button 
                 onClick={() => setCurrentView('dashboard')}
