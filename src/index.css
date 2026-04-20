@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "VT323", monospace;
+  --font-body: "Space Grotesk", sans-serif;
+
+  --color-primary: #8eff71;
+  --color-primary-container: #2ff801;
+  --color-on-primary: #0d6100;
+
+  --color-secondary: #c47fff;
+  --color-secondary-container: #8c00e5;
+  --color-on-secondary: #340059;
+
+  --color-tertiary: #8ff5ff;
+  --color-tertiary-container: #00eefc;
+  --color-on-tertiary: #005d63;
+
+  --color-background: #0e0e0e;
+  --color-surface: #0e0e0e;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #1a1a1a;
+  --color-surface-container-high: #20201f;
+  --color-surface-container-highest: #262626;
+  --color-surface-bright: #2c2c2c;
+
+  --color-outline: #767575;
+  --color-outline-variant: #484847;
+  --color-on-surface-variant: #adaaaa;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white font-body;
+    image-rendering: pixelated;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline uppercase;
+  }
+}
+
+@layer components {
+  .pixel-shadow {
+    box-shadow: 4px 4px 0px 0px var(--color-surface-container-highest);
+  }
+
+  .pixel-shadow-primary {
+    box-shadow: 4px 4px 0px 0px var(--color-primary);
+  }
+
+  .pixel-shadow-hover:hover {
+    box-shadow: 8px 8px 0px 0px var(--color-primary);
+    transform: translate(-2px, -2px);
+  }
+
+  .crt-overlay {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.1) 50%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.03),
+        rgba(0, 255, 0, 0.01),
+        rgba(0, 0, 255, 0.03)
+      );
+    background-size: 100% 3px, 3px 100%;
+    z-index: 100;
+  }
+
+  .terminal-window {
+    @apply bg-surface-container-low border-l-4 border-primary p-6 relative overflow-hidden;
+  }
+}
+
